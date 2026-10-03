@@ -20,10 +20,10 @@ import SlotText3D from "./components/SlotText3D"
 import NavAssistant from "./components/NavAssistant"
 
 const modules = [
-  ["01", BarChart3, "Business intelligence", "See revenue, margins, cash flow, and operational health without stitching together spreadsheets."],
-  ["02", Package, "Inventory & operations", "Track stock, purchasing, fulfillment, and movement from one connected operational layer."],
-  ["03", Receipt, "Finance & billing", "Keep invoices, payments, expenses, and approvals in the same source of truth."],
-  ["04", Users, "People & teams", "Give everyone clear ownership, permissions, schedules, and the context they need to act."],
+  { number: "01", icon: BarChart3, title: "Business intelligence", text: "See revenue, margins, cash flow, and operational health without stitching together spreadsheets." },
+  { number: "02", icon: Package, title: "Inventory & operations", text: "Track stock, purchasing, fulfillment, and movement from one connected operational layer." },
+  { number: "03", icon: Receipt, title: "Finance & billing", text: "Keep invoices, payments, expenses, and approvals in the same source of truth." },
+  { number: "04", icon: Users, title: "People & teams", text: "Give everyone clear ownership, permissions, schedules, and the context they need to act." },
 ]
 
 const faqs = [
@@ -204,8 +204,8 @@ function App() {
         </div>
 
         <div className="module-grid">
-          {modules.map(([number, Icon, title, text]) => (
-            <motion.article whileHover={{ y: -4 }} transition={{ duration: .22 }} className="module-card" key={String(number)}>
+          {modules.map(({ number, icon: Icon, title, text }) => (
+            <motion.article whileHover={{ y: -4 }} transition={{ duration: .22 }} className="module-card" key={number}>
               <div className="module-top"><span className="module-number">{number}</span><Icon size={20} strokeWidth={1.7} /></div>
               <h3>{title}</h3><p>{text}</p>
               <span className="module-link">Explore module <ArrowRight size={14} /></span>
